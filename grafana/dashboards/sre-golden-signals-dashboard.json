@@ -1,0 +1,92 @@
+{
+    "uid": "sre-golden-signals",
+    "title": "SRE Golden Signals Dashboard",
+    "schemaVersion": 36,
+    "version": 1,
+    "time": {
+        "from": "now-1h",
+        "to": "now"
+    },
+    "panels": [
+        {
+            "title": "Latency (scrape duration seconds)",
+            "type": "timeseries",
+            "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+            },
+            "targets": [
+                {
+                    "expr": "scrape_duration_seconds",
+                    "refId": "A"
+                }
+            ],
+            "gridPos": {
+                "h": 8,
+                "w": 16,
+                "x": 0,
+                "y": 0
+            }
+        },
+        {
+            "title": "Traffic (network receive bytes/sec)",
+            "type": "timeseries",
+            "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+            },
+            "targets": [
+                {
+                    "expr": "rate(node_network_receive_bytes_total[5m])",
+                    "refId": "B"
+                }
+            ],
+            "gridPos": {
+                "h": 8,
+                "w": 16,
+                "x": 0,
+                "y": 8
+            }
+        },
+        {
+            "title": "Errors (1 - up)",
+            "type": "timeseries",
+            "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+            },
+            "targets": [
+                {
+                    "expr": "1 - up",
+                    "refId": "C"
+                }
+            ],
+            "gridPos": {
+                "h": 8,
+                "w": 16,
+                "x": 0,
+                "y": 16
+            }
+        },
+        {
+            "title": "Saturation (CPU Usage %)",
+            "type": "timeseries",
+            "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+            },
+            "targets": [
+                {
+                    "expr": "100 - (avg by(instance)(irate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100)",
+                    "refId": "D"
+                }
+            ],
+            "gridPos": {
+                "h": 8,
+                "w": 16,
+                "x": 0,
+                "y": 24
+            }
+        }
+    ]
+}

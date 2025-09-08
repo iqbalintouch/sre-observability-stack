@@ -1,0 +1,32 @@
+{
+    "uid": "sample-prometheus",
+    "title": "Prometheus - sample dashboard",
+    "schemaVersion": 36,
+    "version": 1,
+    "time": {
+        "from": "now-1h",
+        "to": "now"
+    },
+    "panels": [
+        {
+            "datasource": {
+                "type": "prometheus",
+                "uid": "prometheus"
+            },
+            "targets": [
+                {
+                    "expr": "up",
+                    "refId": "A"
+                }
+            ],
+            "title": "Prometheus: up",
+            "type": "timeseries",
+            "gridPos": {
+                "h": 8,
+                "w": 24,
+                "x": 0,
+                "y": 0
+            }
+        }
+    ]
+}

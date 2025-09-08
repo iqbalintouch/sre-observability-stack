@@ -1,4 +1,4 @@
-# Grafana Lab – Monitoring Stack with Docker Compose (Grafana, Prometheus & Node Exporter)
+# Monitoring Stack with Docker Compose (Grafana, Prometheus & Node Exporter)
 
 # 1. 🎯 Purpose
 

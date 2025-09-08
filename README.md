@@ -51,18 +51,18 @@ grafana-lab/
    - sre-golden-signals-dashboard.json → Latency, Traffic, Errors, CPU Saturation.
    - 
 # 4. Commands Uses
-  #Start stack
+#Start stack
    - docker compose up -d
-  #Stop stack (keep data)
+#Stop stack (keep data)
    - docker compose down
-  #Stop stack and wipe volumes (force reprovision)
+#Stop stack and wipe volumes (force reprovision)
    - docker compose down -v
-  #Restart Grafana only
+#Restart Grafana only
    - docker compose restart grafana
-  #Check the Logs
+#Check the Logs
    - docker compose logs -f grafana
    - docker compose logs -f prometheus
-  #Check resources
+#Check resources
    - docker compose ps
    - docker system df
    - docker system prune -f      # optional cleanup
